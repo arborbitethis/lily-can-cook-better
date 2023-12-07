@@ -27,7 +27,7 @@ const Filters = ({ setSearchTerm, searchTerm, setTotalTime, totalTime }) => {
             min="0"
             max="240"
             step="5"
-            defaultValue="130"
+            defaultValue="240"
             id="totalTime"
             className="w-full sm:w-60"  // Adjust width for mobile screens
             onChange={(e) => {

@@ -7,7 +7,7 @@ import useRecipes from '../api/RecipeApi';
 const RecipePage = () => {
   const { recipes, isLoading, error } = useRecipes();
   const [searchTerm, setSearchTerm] = useState('');
-  const [totalTime, setTotalTime] = useState(80);
+  const [totalTime, setTotalTime] = useState(240);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
   const filteredRecipes = recipes.filter(recipe => {
