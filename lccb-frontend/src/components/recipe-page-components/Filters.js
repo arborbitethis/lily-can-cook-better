@@ -26,7 +26,7 @@ const Filters = ({ setSearchTerm, searchTerm, setTotalTime, totalTime }) => {
             min="0"
             max="240"
             step="5"
-            defaultValue="120"
+            defaultValue="130"
             id="totalTime"
             className="w-60"
             onChange={(e) => {
