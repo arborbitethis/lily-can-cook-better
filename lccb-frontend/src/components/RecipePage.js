@@ -10,17 +10,13 @@ const RecipePage = () => {
   const [totalTime, setTotalTime] = useState(80);
   const [selectedRecipe, setSelectedRecipe] = useState(null);
 
-
   const filteredRecipes = recipes.filter(recipe => {
     const calculatedTotalTime = recipe.prepTime + recipe.cookTime;
-  
     return (
       recipe.title.toLowerCase().includes(searchTerm.toLowerCase()) &&
       calculatedTotalTime <= totalTime
     );
   });
-
-
 
   return (
     <div className="container mx-auto p-4">
@@ -48,8 +44,7 @@ const RecipePage = () => {
           {filteredRecipes.map((recipe, index) => (
             <RecipeCard
               key={index}
-              className="mr-4 mb-4 cursor-pointer"
-              maxWidth="320px"
+              className="w-full sm:w-320px mr-4 mb-4 cursor-pointer" // Adjust width for mobile screens
               title={recipe.title}
               description={recipe.description}
               prepTime={recipe.prepTime}
