@@ -226,15 +226,7 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
                         onChange={(e) => handleStepChange(index, e)}
                         className="mr-2 p-2 border border-gray-300 rounded w-full"
                     />
-                    <button 
-                        type="button" 
-                        onClick={() => handleRemoveStep(index)}
-                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
-                    >
-                        Remove
-                    </button>
-                </div>
-            ))}
+                                
             <button type="button" onClick={() => openModal(index)}>
             Add Image
             </button>
@@ -245,6 +237,16 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
             >
                 Add Step
             </button>
+                    <button 
+                        type="button" 
+                        onClick={() => handleRemoveStep(index)}
+                        className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded"
+                    >
+                        Remove
+                    </button>
+                </div>
+            ))}
+
             <div>
                 
             <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded mt-4">
