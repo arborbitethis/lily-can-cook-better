@@ -235,6 +235,9 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
                     </button>
                 </div>
             ))}
+            <button type="button" onClick={() => openModal(index)}>
+            Add Image
+            </button>
             <button 
                 type="button" 
                 onClick={handleAddStep}
