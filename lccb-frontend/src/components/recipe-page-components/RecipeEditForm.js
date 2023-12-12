@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import axios from 'axios';
+import ImageUploadModal from './ImageUploadModal';
 
 const RecipeEditForm = ({ recipeData, onCancel }) => {
     console.log(recipeData)
@@ -14,6 +15,10 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
         ingredients: [],
         steps: []
     });
+
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [activeStepIndex, setActiveStepIndex] = useState(null);
+
 
     useEffect(() => {
         if (recipeData) {
@@ -74,6 +79,21 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
         };
     
 
+    const openModal = (stepIndex) => {
+        setIsModalOpen(true);
+        setActiveStepIndex(stepIndex);
+    };
+
+    const closeModal = () => {
+        setIsModalOpen(false);
+        setActiveStepIndex(null);
+    };
+
+    const handleUploadSuccess = (stepIndex, imageData) => {
+        // Update the steps with the new image data
+        // This depends on how you want to store the image data
+    };
+      
     const handleSubmit = async (e) => {
         e.preventDefault();
         // Add logic to structure the data as per your API requirements
@@ -105,6 +125,7 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
     };
 
     return (
+        <>
         <form onSubmit={handleSubmit} className="bg-white p-6 rounded-lg shadow-lg">
             <h2 className="text-xl font-bold mb-4">Edit Recipe</h2>
 
@@ -231,7 +252,14 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
                 Cancel
             </button>
             </div>
+            <ImageUploadModal 
+          isOpen={isModalOpen} 
+          onClose={closeModal} 
+          onUploadSuccess={handleUploadSuccess} 
+          stepIndex={activeStepIndex} 
+        />
         </form>
+        </>
     );
 };
 
