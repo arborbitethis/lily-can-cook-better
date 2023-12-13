@@ -22,7 +22,7 @@ const ImageUploadModal = ({ isOpen, onClose, onUploadSuccess, stepIndex, stepId,
     formData.append('recipeId', recipeId);
 
     try {
-      const response = await axios.post(`${process.env.REACT_APP_RECPIE_API_URL}/upload/step-image/${stepIndex}`, formData);
+      const response = await axios.post(`${process.env.REACT_APP_RECPIE_API_URL}/uploadimage`, formData);
       console.log(`Step ${stepIndex} Image uploaded:`, response.data);
       onUploadSuccess(stepIndex, response.data); // Pass any necessary data back to the parent
       onClose(); // Close the modal
