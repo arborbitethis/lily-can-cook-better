@@ -18,6 +18,8 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
 
     const [isModalOpen, setIsModalOpen] = useState(false);
     const [activeStepIndex, setActiveStepIndex] = useState(null);
+    const [activeStepId, setActiveStepId] = useState(null);
+
 
 
     useEffect(() => {
@@ -71,10 +73,10 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
         }));
     };
 
-
-    const openModal = (stepIndex) => {
+    const openModal = (stepIndex, stepId) => {
         setIsModalOpen(true);
         setActiveStepIndex(stepIndex);
+        setActiveStepId(stepId)
     };
 
     const closeModal = () => {
@@ -228,7 +230,7 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
                             className="mr-2 p-2 border border-gray-300 rounded w-full"
                         />
 
-                        <button type="button" onClick={() => openModal(index)} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
+                        <button type="button" onClick={() => openModal(index, step.step_id)} className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded"
                         >
                             Add Image
                         </button>
@@ -266,6 +268,8 @@ const RecipeEditForm = ({ recipeData, onCancel }) => {
                 onClose={closeModal}
                 onUploadSuccess={handleUploadSuccess}
                 stepIndex={activeStepIndex}
+                stepId={activeStepId}
+                recipeId={editedRecipe.id}
             />
         </>
     );
