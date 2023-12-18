@@ -52,7 +52,11 @@ const RecipeDetail = ({ recipeId, onBack }) => {
           <div key={step.step_id} className="mb-4">
             <p><strong>Step {step.step_number}:</strong> {step.step_description}</p>
             {step.step_image && (
-              <img src={step.step_image} alt={`Step ${step.step_number}`} className="w-full h-64 object-cover rounded" />
+              <img
+                src={`${process.env.REACT_APP_RECPIE_API_URL}/${step.step_image}`}
+                alt={`Step ${step.step_number}`}
+                className="w-full h-64 object-cover rounded"
+              />
             )}
           </div>
         ))}
